@@ -46,7 +46,7 @@ export const AnimatedThemeToggler = ({ className }: props) => {
     );
   };
   return (
-    <button ref={buttonRef} onClick={changeTheme} className={cn(className)}>
+    <button ref={buttonRef} onClick={changeTheme} className={cn('cursor-pointer hover:bg-secondary-foreground/30 p-1 rounded-full  transition-all',className)}>
       {isDarkMode ? <SunDim /> : <Moon />}
     </button>
   );
