@@ -20,18 +20,25 @@ export default function Home() {
       className="flex flex-col  transform-none relative h-[200vh] pt-32 items-center min-h-screen overflow-hidden "
     >
       <Header containerRef={containerRef} />
-      <Row className="w-full bg-muted-foreground/15  h-[70vh]">
+      <Row className="w-full bg-accent  h-[70vh]">
         <Row className="w-full justify-evenly">
           <NeonGradientCard borderRadius={1000} className="w-auto h-auto   ">
             <div className="size-full overflow-hidden w-full h-full rounded-[1000px]">
-              <PixelImage src="/foto.jpg" customGrid={{ rows: 4, cols: 6 }} />
+              <PixelImage src="/foto.jpg" grid="8x8" />
             </div>
           </NeonGradientCard>
           <Col className="w-1/2 h-full justify-start font-jet">
-            <TypingAnimation className="text-muted-foreground font-medium text-2xl">
+            <TypingAnimation
+              duration={50}
+              className="text-muted-foreground font-medium text-2xl"
+            >
               Olá, sou o Felipe
             </TypingAnimation>
-            <TypingAnimation className="leading-12 text-5xl">{`Mid-Level {Full Stack} Web Developer`}</TypingAnimation>
+            <TypingAnimation
+              delay={1000}
+              duration={50}
+              className="leading-12 text-4xl w-1/2"
+            >{`Mid-Level {Full Stack} Web Developer`}</TypingAnimation>
           </Col>
         </Row>
       </Row>
