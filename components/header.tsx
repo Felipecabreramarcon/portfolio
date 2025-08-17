@@ -7,6 +7,8 @@ import { ShinyButton } from "./magicui/shiny-button";
 import { useMotionValueEvent, useScroll } from "motion/react";
 import { cn } from "@/lib/utils";
 import { RefObject, useState } from "react";
+import { BorderBeam } from "./magicui/border-beam";
+import { BlurFade } from "./magicui/blur-fade";
 
 export default function Header({
   containerRef,
@@ -22,28 +24,43 @@ export default function Header({
 
   console.log(scrollY);
   return (
-    <header
+    <BlurFade
       className={cn(
-        "flex fixed top-0 left-1/2 -translate-x-1/2 duration-400 z-50 w-[80%] font-poppins rounded-2xl  transition-all items-center justify-between p-5 bg-secondary-foreground text-secondary",
-        currentScroll > 100
-          ? "mt-0 rounded-t-none pt-2 bg-secondary-foreground/50 hover:my-2 hover:pt-5 hover:bg-secondary-foreground hover:rounded-t-2xl"
-          : "my-2  "
+        " w-[85%] fixed top-0 backdrop-blur-sm rounded-2xl  h-auto left-1/2 -translate-x-1/2 duration-400",
+        currentScroll > 50
+          ? "mt-0 rounded-t-none hover:my-2   hover:rounded-t-2xl"
+          : "mt-5  "
       )}
     >
-      <Row className="gap-2">
-        <Row className="[&_svg]:size-6 text-blue-700">
-          <FaChevronLeft />
-          <FaChevronRight />
+      <header
+        className={cn(
+          "flex relative z-50  mx-auto font-poppins rounded-2xl transition-all items-center justify-between p-6 bg-secondary-foreground dark:bg-secondary text-secondary dark:text-secondary-foreground",
+          currentScroll > 50
+            ? " rounded-t-none pt-2 opacity-50 hover:my-2 hover:pt-5 hover:opacity-100 hover:rounded-t-2xl"
+            : " "
+        )}
+      >
+        <Row className="gap-2">
+          <Row className="[&_svg]:size-6 text-blue-700">
+            <FaChevronLeft />
+            <FaChevronRight />
+          </Row>
+          <h1 className="text-2xl font-medium">Marcon.Dev</h1>
         </Row>
-        <h1 className="text-2xl font-medium">Marcon.Dev</h1>
-      </Row>
 
-      <Row className="justify-between">
-        <ShinyButton className="border-none">About Me </ShinyButton>
-        <ShinyButton className="border-none">Projects </ShinyButton>
-      </Row>
+        <Row className="justify-between [&_button]:border-none  [&_button]:bg-transparent ">
+          <ShinyButton>About Me </ShinyButton>
+          <ShinyButton>Projects </ShinyButton>
+        </Row>
 
-      <AnimatedThemeToggler />
-    </header>
+        <AnimatedThemeToggler />
+        <BorderBeam
+          duration={10}
+          size={200}
+          reverse
+          className="from-transparent via-blue-600 to-transparent"
+        />
+      </header>
+    </BlurFade>
   );
 }

@@ -1,9 +1,11 @@
 "use client";
-import DotGrid from "@/components/Backgrounds/DotGrid/DotGrid";
-import LightRays from "@/components/Backgrounds/LightRays/LightRays";
+import { Col } from "@/components/col";
 import Header from "@/components/header";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import { Pointer } from "@/components/magicui/pointer";
+import { NeonGradientCard } from "@/components/magicui/neon-gradient-card";
+import { PixelImage } from "@/components/magicui/pixel-image";
+import { TypingAnimation } from "@/components/magicui/typing-animation";
+import { Row } from "@/components/row";
 import { useScroll } from "motion/react";
 import { useRef } from "react";
 
@@ -15,34 +17,24 @@ export default function Home() {
   return (
     <div
       ref={containerRef}
-      className="flex flex-col transform-none relative h-[200vh]  items-center min-h-screen overflow-hidden "
+      className="flex flex-col  transform-none relative h-[200vh] pt-32 items-center min-h-screen overflow-hidden "
     >
-      {/* <LightRays
-        raysOrigin="top-center"
-        raysColor="var(--primary)"
-        raysSpeed={0.5}
-        lightSpread={0.5}
-        rayLength={1.4}
-        followMouse={true}
-        mouseInfluence={0.2}
-        noiseAmount={0.2}
-        distortion={0.05}
-        className="custom-rays h-full"
-      /> */}
-      <DotGrid
-        dotSize={5}
-        gap={15}
-        baseColor="#99a1af"
-        activeColor="#5227FF"
-        proximity={120}
-        shockRadius={200}
-        shockStrength={5}
-        resistance={300}
-        returnDuration={2}
-        className="opacity-20"
-      />
       <Header containerRef={containerRef} />
-      {/* <BlurFade className="w-full"></BlurFade> */}
+      <Row className="w-full bg-muted-foreground/15  h-[70vh]">
+        <Row className="w-full justify-evenly">
+          <NeonGradientCard borderRadius={1000} className="w-auto h-auto   ">
+            <div className="size-full overflow-hidden w-full h-full rounded-[1000px]">
+              <PixelImage src="/foto.jpg" customGrid={{ rows: 4, cols: 6 }} />
+            </div>
+          </NeonGradientCard>
+          <Col className="w-1/2 h-full justify-start font-jet">
+            <TypingAnimation className="text-muted-foreground font-medium text-2xl">
+              Olá, sou o Felipe
+            </TypingAnimation>
+            <TypingAnimation className="leading-12 text-5xl">{`Mid-Level {Full Stack} Web Developer`}</TypingAnimation>
+          </Col>
+        </Row>
+      </Row>
     </div>
   );
 }

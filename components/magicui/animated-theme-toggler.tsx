@@ -42,11 +42,18 @@ export const AnimatedThemeToggler = ({ className }: props) => {
         duration: 700,
         easing: "ease-in-out",
         pseudoElement: "::view-transition-new(root)",
-      },
+      }
     );
   };
   return (
-    <button ref={buttonRef} onClick={changeTheme} className={cn('cursor-pointer hover:bg-secondary-foreground/30 p-1 rounded-full  transition-all',className)}>
+    <button
+      ref={buttonRef}
+      onClick={changeTheme}
+      className={cn(
+        "cursor-pointer hover:bg-current/10 p-2 rounded-full transition-all",
+        className
+      )}
+    >
       {isDarkMode ? <SunDim /> : <Moon />}
     </button>
   );
