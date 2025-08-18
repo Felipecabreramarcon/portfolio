@@ -4,6 +4,7 @@ import { Moon, SunDim } from "lucide-react";
 import { useState, useRef } from "react";
 import { flushSync } from "react-dom";
 import { cn } from "@/lib/utils";
+import { ShinyButton } from "./shiny-button";
 
 type props = {
   className?: string;
@@ -46,15 +47,15 @@ export const AnimatedThemeToggler = ({ className }: props) => {
     );
   };
   return (
-    <button
+    <ShinyButton
       ref={buttonRef}
       onClick={changeTheme}
       className={cn(
-        "cursor-pointer hover:bg-current/10 p-2 rounded-full transition-all",
+        " hover:bg-current/10 appearance-none!  p-2 rounded-full transition-all",
         className
       )}
     >
       {isDarkMode ? <SunDim /> : <Moon />}
-    </button>
+    </ShinyButton>
   );
 };

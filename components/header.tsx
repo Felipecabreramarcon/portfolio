@@ -26,7 +26,7 @@ export default function Header({
   return (
     <BlurFade
       className={cn(
-        " w-[85%] fixed top-0 backdrop-blur-sm rounded-2xl  h-auto left-1/2 -translate-x-1/2 duration-400",
+        " w-[95%] fixed top-0 backdrop-blur-sm rounded-2xl  h-auto left-1/2 -translate-x-1/2 duration-400",
         currentScroll > 50
           ? "mt-0 rounded-t-none hover:my-2   hover:rounded-t-2xl"
           : "mt-5  "
@@ -34,9 +34,9 @@ export default function Header({
     >
       <header
         className={cn(
-          "flex relative z-50  mx-auto font-poppins rounded-2xl transition-all items-center justify-between p-6 bg-secondary-foreground dark:bg-secondary text-secondary dark:text-secondary-foreground",
+          "flex relative z-50  mx-auto font-poppins  rounded-2xl transition-all items-center justify-between p-6 bg-secondary-foreground dark:bg-secondary text-secondary dark:text-secondary-foreground",
           currentScroll > 50
-            ? " rounded-t-none pt-2 opacity-50 hover:my-2 hover:pt-5 hover:opacity-100 hover:rounded-t-2xl"
+            ? " rounded-t-none pt-2 opacity-50  hover:pt-5 hover:opacity-100 hover:rounded-t-2xl"
             : " "
         )}
       >
@@ -48,18 +48,13 @@ export default function Header({
           <h1 className="text-2xl font-medium">Marcon.Dev</h1>
         </Row>
 
-        <Row className="justify-between [&_button]:border-none  [&_button]:bg-transparent ">
+        <Row className="justify-between [&_button]:border-none  [&_button]:bg-transparent  ">
           <ShinyButton>About Me </ShinyButton>
           <ShinyButton>Projects </ShinyButton>
         </Row>
 
         <AnimatedThemeToggler />
-        <BorderBeam
-          duration={10}
-          size={200}
-          reverse
-          className="from-transparent via-blue-600 to-transparent"
-        />
+        <BorderBeam duration={10} colorFrom="blue" colorTo="purple" size={50} />
       </header>
     </BlurFade>
   );

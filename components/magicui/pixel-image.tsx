@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 
 type Grid = {
@@ -90,7 +91,7 @@ export const PixelImage = ({
   }, [rows, cols, maxAnimationDelay]);
 
   return (
-    <div className="relative h-80 w-80 select-none  ">
+    <div className="relative h-60 w-60 select-none  ">
       {pieces.map((piece, index) => (
         <div
           key={index}
